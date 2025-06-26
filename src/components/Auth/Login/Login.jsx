@@ -2,11 +2,12 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 
-const SignUp = () => {
-  const [showPassword, setShowPassword] = useState(false);
 
-  return (
-    <div className="  bg-[#f8f8f8] text-black  mx-auto font-montserrat h-screen ]">
+const Login = () => {
+ const [showPassword, setShowPassword] = useState(false);
+
+    return (
+        <div className="  bg-[#f8f8f8] text-black  mx-auto font-montserrat h-screen ]">
       <div className=" bg-[#f8f8f8]">
         <div className="flex justify-center">
           <img
@@ -18,11 +19,10 @@ const SignUp = () => {
 
         <div className="text-center mb-2">
           <h2 className="text-[1.8rem] font-bold text-gray-800">
-            Create account
+            Hello, Welcome!
           </h2>
           <p className="lg:w-[448px] mx-auto text-gray-500 text-sm">
-            Enter The Email Address Associated With Your Account. We'll Send You
-            An OTP To Your Email.
+            Please Enter Your Details Below To Continue
           </p>
         </div>
 
@@ -46,7 +46,7 @@ const SignUp = () => {
 
             <div className="w-full relative mb-2 text-sm">
               <label className=" " htmlFor="password">
-                New Password
+                Password
               </label>
 
               <input
@@ -54,7 +54,7 @@ const SignUp = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 id="password"
-                placeholder="Enter New Password"
+                placeholder="Enter Password"
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
@@ -64,29 +64,24 @@ const SignUp = () => {
               </span>
             </div>
 
-            <div className="w-full relative text-sm">
-              <label className=" " htmlFor="password">
-                Confirm Password
+           <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2 mt-2">
+                <input type="checkbox"  className="bg-white"/>
+                 <label className="text-sm " htmlFor="checkbox">
+                Remember me
               </label>
-              <input
-                className=" py-2 px-4 w-full my-2 ml-2  border border-gray-300 rounded-md bg-white"
-                type={showPassword ? "text" : "password"}
-                name="password"
-                id="password"
-                placeholder="Confirm New Password"
-              />
-              <span
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-2 top-11 text-xl"
-              >
-                {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
-              </span>
             </div>
+            <div>
+                <Link className="text-sm text-[#1D4ED8] hover:underline" to="/forgot-password">
+                    Forgot Password?
+                </Link>
+            </div>
+           </div>
 
             <input
               className="btn  bg-[#1D4ED8] py-2 w-full border-none rounded-md  mt-6  hover:bg-[#113db4] "
               type="submit"
-              value="Sign Up"
+              value="Login"
             />
           </form>
 
@@ -94,7 +89,7 @@ const SignUp = () => {
             <p className="text-gray-500">
               {" "}
               Already have an account?
-              <Link className="  ml-2 text-[#1D4ED8]" to="/login">
+              <Link className="  ml-2 text-[#1D4ED8]" to="/signup">
                 Login{" "}
               </Link>
             </p>
@@ -102,7 +97,7 @@ const SignUp = () => {
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default SignUp;
+export default Login;
